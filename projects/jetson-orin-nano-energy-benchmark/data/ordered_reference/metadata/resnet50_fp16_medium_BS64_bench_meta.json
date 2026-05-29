@@ -1,0 +1,26 @@
+{
+  "batch": 64,
+  "cuda_device": "Orin",
+  "device_type": "cuda",
+  "git_commit": null,
+  "git_status": null,
+  "imgsz": 224,
+  "iters": null,
+  "measure_accuracy": true,
+  "metrics": {
+    "duration_s": 1018.7348016960023,
+    "iterations": 782,
+    "latency_avg_ms": 381.90196190253283,
+    "latency_p50_ms": 381.7654399899766,
+    "throughput_img_s": 167.4215513513107,
+    "top1": 0.80736
+  },
+  "model": "resnet50",
+  "precision": "fp16",
+  "pretrained": true,
+  "seed": 123,
+  "timestamp": "2026-03-11T15:49:01Z",
+  "torch_version": "2.6.0",
+  "torchvision_version": "0.21.0",
+  "warmup": 50
+}
