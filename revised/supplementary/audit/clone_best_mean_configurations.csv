@@ -1,0 +1,19 @@
+model,precision,objective,profile,batch,mean,sd
+mobilenet_v2,fp16,max throughput_img_s_mean,medium,128,369.5530412133176,1.2486801658657323
+mobilenet_v2,fp16,min energy_per_img_J_avg_power_times_meta_duration_mean,medium,64,0.09655271335053757,0.0027048986845143006
+mobilenet_v2,fp16,min energy_per_img_J_integrated_log_timestamps_mean,medium,64,0.09943019333333332,0.0027749989842220306
+mobilenet_v2,fp32,max throughput_img_s_mean,fast,64,205.20992271870628,0.9439973011979219
+mobilenet_v2,fp32,min energy_per_img_J_avg_power_times_meta_duration_mean,fast,64,0.12855549379232775,0.005388613788209644
+mobilenet_v2,fp32,min energy_per_img_J_integrated_log_timestamps_mean,medium,32,0.13189045,0.008480470137681047
+mobilenet_v2,fp64,max throughput_img_s_mean,medium,32,23.330815048814753,0.03086177569780926
+mobilenet_v2,fp64,min energy_per_img_J_avg_power_times_meta_duration_mean,medium,32,0.36629413079436723,0.010574772872271192
+mobilenet_v2,fp64,min energy_per_img_J_integrated_log_timestamps_mean,medium,32,0.3767590366666667,0.011110722067968164
+resnet50,fp16,max throughput_img_s_mean,medium,128,182.06029553186076,0.6960792809873856
+resnet50,fp16,min energy_per_img_J_avg_power_times_meta_duration_mean,medium,128,0.1355540795828731,0.0054733108246844695
+resnet50,fp16,min energy_per_img_J_integrated_log_timestamps_mean,medium,128,0.14308357666666668,0.005860390917552634
+resnet50,fp32,max throughput_img_s_mean,medium,128,80.57089282482137,0.33039318595904466
+resnet50,fp32,min energy_per_img_J_avg_power_times_meta_duration_mean,medium,128,0.23241050504392705,0.009519542479199396
+resnet50,fp32,min energy_per_img_J_integrated_log_timestamps_mean,medium,64,0.24539599,0.009911416988468393
+resnet50,fp64,max throughput_img_s_mean,fast,16,2.435121922757721,0.006692825424157673
+resnet50,fp64,min energy_per_img_J_avg_power_times_meta_duration_mean,medium,16,2.6700444431038934,0.1184683988180872
+resnet50,fp64,min energy_per_img_J_integrated_log_timestamps_mean,medium,16,2.7132315499999997,0.11996941877531647

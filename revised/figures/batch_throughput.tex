@@ -1,0 +1,44 @@
+\begin{tikzpicture}
+\newcommand{\ThroughputSeries}[1]{%
+  \addplot+[slowcolor, mark=square*, thick, error bars/.cd, y dir=both, y explicit]
+    table[x=batch,y=slow_mean,y error=slow_sd,col sep=comma] {generated/batch_throughput_#1.csv};
+  \addplot+[mediumcolor, mark=triangle*, thick, error bars/.cd, y dir=both, y explicit]
+    table[x=batch,y=medium_mean,y error=medium_sd,col sep=comma] {generated/batch_throughput_#1.csv};
+  \addplot+[fastcolor, mark=*, thick, error bars/.cd, y dir=both, y explicit]
+    table[x=batch,y=fast_mean,y error=fast_sd,col sep=comma] {generated/batch_throughput_#1.csv};
+}
+\begin{groupplot}[
+  group style={group size=3 by 2, horizontal sep=7mm, vertical sep=9mm},
+  width=0.285\textwidth,
+  height=0.235\textwidth,
+  xmode=log,
+  log basis x=2,
+    xtick={1,4,16,128},
+    xticklabels={1,4,16,128},
+  ymode=log,
+  log basis y=10,
+  minor tick num=0,
+  grid=major,
+  major grid style={black!12},
+  tick label style={font=\footnotesize},
+  title style={font=\footnotesize},
+  label style={font=\footnotesize},
+  error bars/error mark options={rotate=90, mark size=1pt},
+  error bars/error bar style={line width=0.35pt},
+]
+\nextgroupplot[title={MobileNetV2 FP16},ylabel={Images/s},legend to name=throughputlegend,legend columns=3]
+  \ThroughputSeries{mobilenet_v2_fp16}
+  \addlegendentry{slow}\addlegendentry{medium}\addlegendentry{fast}
+\nextgroupplot[title={MobileNetV2 FP32}]
+  \ThroughputSeries{mobilenet_v2_fp32}
+\nextgroupplot[title={MobileNetV2 FP64}]
+  \ThroughputSeries{mobilenet_v2_fp64}
+\nextgroupplot[title={ResNet-50 FP16},ylabel={Images/s},xlabel={Batch size}]
+  \ThroughputSeries{resnet50_fp16}
+\nextgroupplot[title={ResNet-50 FP32},xlabel={Batch size}]
+  \ThroughputSeries{resnet50_fp32}
+\nextgroupplot[title={ResNet-50 FP64},xlabel={Batch size}]
+  \ThroughputSeries{resnet50_fp64}
+\end{groupplot}
+\node[anchor=north] at ($(group c2r2.south)+(0,-7mm)$) {\ref{throughputlegend}};
+\end{tikzpicture}

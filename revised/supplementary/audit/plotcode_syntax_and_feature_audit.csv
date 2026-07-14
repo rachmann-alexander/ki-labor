@@ -1,0 +1,15 @@
+path,bytes,syntax_ok,syntax_error,mentions_energy_per_img,mentions_integrated_energy,mentions_edp,batch_marker_support_1_4_8_16,batch_marker_support_32_64_128
+Plotcode/build_enriched_manifest.py,4427,True,,True,True,True,False,False
+Plotcode/diag_check_manifest.py,5035,True,,True,False,False,False,False
+Plotcode/ee-bench.code-workspace,163,True,,,,,,
+Plotcode/host_run_grid_unattended_v6.py,14618,True,,False,False,True,False,False
+Plotcode/make_best_of.py,7883,True,,True,False,True,False,False
+Plotcode/make_plot_01_throughput_power_grid.py,6548,True,,False,False,False,False,True
+Plotcode/make_plot_01_throughput_power_multi.py,7025,True,,False,False,False,False,True
+Plotcode/make_plot_02_energy_per_image_grid.py,8284,True,,True,False,False,False,True
+Plotcode/make_plot_03_images_per_joule_batch_grid.py,7726,True,,False,False,False,False,True
+Plotcode/make_plot_04_energy_per_batch_grid.py,8183,True,,True,False,False,False,True
+Plotcode/make_plot_05_latency_vs_throughput_grid.py,7062,True,,False,False,False,False,True
+Plotcode/make_plot_06_edp_vs_throughput_all.py,6947,True,,True,False,True,False,True
+Plotcode/make_plot_06_edp_vs_throughput_grid.py,6842,True,,True,False,True,False,True
+Plotcode/make_plot_06_edp_vs_throughput_grid_swapped.py,6947,True,,True,False,True,False,True

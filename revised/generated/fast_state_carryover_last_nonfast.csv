@@ -1,0 +1,3 @@
+last_nonfast_profile,n_fast_runs,observed_low,observed_high,expected_regime,rule_matches,rule_accuracy_percent
+slow,57,57,0,low,57,100.0
+medium,69,0,69,high,69,100.0

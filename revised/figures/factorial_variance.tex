@@ -1,0 +1,59 @@
+\begin{tikzpicture}
+\begin{groupplot}[
+  group style={group size=1 by 2, vertical sep=28mm},
+  width=0.98\textwidth,
+  height=0.245\textwidth,
+  xmin=0, xmax=100,
+  y dir=reverse,
+  axis x line*=bottom,
+  axis y line*=left,
+  tick label style={font=\footnotesize},
+  title style={font=\footnotesize},
+  label style={font=\footnotesize},
+  grid=major,
+  major grid style={black!12},
+]
+\nextgroupplot[
+  xbar stacked,
+  bar width=8pt,
+  title={(a) Complete three-precision grid, including the FP64 stress condition},
+  ytick={0,1,2,3},
+  yticklabels={Forward throughput,Logged-window energy/evaluated image,Logged-window throughput,Average input power},
+  legend style={font=\footnotesize, at={(0.5,-0.38)}, anchor=north, legend columns=4, draw=none},
+]
+\addplot+[fill=blue!72, draw=blue!80!black] table[x=model_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_plot.csv};
+\addlegendentry{Model}
+\addplot+[fill=orange!85, draw=orange!75!black] table[x=precision_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_plot.csv};
+\addlegendentry{Precision}
+\addplot+[fill=green!65!black, draw=green!45!black] table[x=batch_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_plot.csv};
+\addlegendentry{Batch}
+\addplot+[fill=purple!65, draw=purple!80!black] table[x=profile_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_plot.csv};
+\addlegendentry{Profile}
+\addplot+[fill=cyan!65, draw=cyan!55!black] table[x=two_way_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_plot.csv};
+\addlegendentry{Two-way terms}
+\addplot+[fill=yellow!70!orange, draw=yellow!50!black] table[x=higher_order_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_plot.csv};
+\addlegendentry{Three-/four-way terms}
+\addplot+[fill=black!32, draw=black!55] table[x=device_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_plot.csv};
+\addlegendentry{Board block}
+\addplot+[fill=black!10, draw=black!40] table[x=residual_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_plot.csv};
+\addlegendentry{Residual}
+
+\nextgroupplot[
+  xbar stacked,
+  bar width=8pt,
+  title={(b) FP16/FP32 sensitivity, slow and medium only},
+  xlabel={Share of corrected sum of squares on the natural-log scale (\%)},
+  ytick={0,1},
+  yticklabels={Forward throughput,Logged-window energy/evaluated image},
+  legend style={font=\footnotesize, at={(0.5,-0.62)}, anchor=north, legend columns=4, draw=none},
+]
+\addplot+[fill=blue!72, draw=blue!80!black] table[x=model_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_slow_medium_plot.csv};
+\addlegendentry{Model}
+\addplot+[fill=orange!85, draw=orange!75!black] table[x=precision_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_slow_medium_plot.csv};
+\addlegendentry{Precision}
+\addplot+[fill=green!65!black, draw=green!45!black] table[x=batch_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_slow_medium_plot.csv};
+\addlegendentry{Batch}
+\addplot+[fill=black!15, draw=black!45] table[x=remaining_pct,y expr=\coordindex,col sep=comma] {generated/anova_variance_slow_medium_plot.csv};
+\addlegendentry{All remaining terms}
+\end{groupplot}
+\end{tikzpicture}

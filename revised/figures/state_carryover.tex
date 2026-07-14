@@ -1,0 +1,41 @@
+\input{generated/state_carryover_macros.tex}
+\begin{tikzpicture}[
+  >=Latex,
+  font=\footnotesize,
+  source/.style={draw, rounded corners=1.5pt, align=center, minimum width=30mm,
+    minimum height=12mm, inner sep=3pt},
+  outcome/.style={draw, very thick, rounded corners=1.5pt, align=center,
+    minimum width=36mm, minimum height=12mm, inner sep=3pt},
+  flow/.style={->, very thick},
+  note/.style={draw=black!35, rounded corners=1.5pt, fill=black!2,
+    align=left, inner sep=4pt, text width=54mm},
+]
+  \node[font=\small\bfseries, anchor=west] at (0,2.0)
+    {(a) Last non-fast nominal profile before each fast run};
+
+  \node[source, fill=slowcolor!10, draw=slowcolor] (slow) at (0,0.9)
+    {Slow\\last non-fast, $n=\FastLastSlowCount$};
+  \node[source, fill=mediumcolor!10, draw=mediumcolor] (medium) at (0,-0.9)
+    {Medium\\last non-fast, $n=\FastLastMediumCount$};
+  \node[outcome, fill=black!8, draw=black!60] (low) at (6.5,0.9)
+    {Nominal fast realized low\\CPU/GPU $729/407$ MHz};
+  \node[outcome, fill=fastcolor!10, draw=fastcolor] (high) at (6.5,-0.9)
+    {Nominal fast realized high\\CPU/GPU $1190/812$--$815$ MHz};
+
+  \draw[flow, slowcolor] (slow) -- node[above, text=black]
+    {$\FastLastSlowCount/\FastLastSlowCount$} (low);
+  \draw[flow, mediumcolor] (medium) -- node[above, text=black]
+    {$\FastLastMediumCount/\FastLastMediumCount$} (high);
+
+  \node[note, anchor=north west] (immediate) at (10.2,1.55) {
+    \textbf{(b) Immediate predecessor audit}\\[1mm]
+    Slow $\rightarrow$ fast: $\FastImmediateSlowCount/\FastImmediateSlowCount$ low\\
+    Medium $\rightarrow$ fast: $\FastImmediateMediumCount/\FastImmediateMediumCount$ high\\
+    Fast $\rightarrow$ fast: $\FastImmediateFastRetained/\FastImmediateFastCount$ retained the prior regime\\[1mm]
+    \textbf{Total:} $\FastTransitionTotal/\FastTransitionTotal$ transitions matched the reconstructed rule.
+  };
+
+  \node[anchor=north west, align=left, text width=152mm, font=\footnotesize, text=black!75]
+    at (0,-2.0) {Association reconstructed from archived within-device grid-state order and modal CPU/GPU read-back clocks.
+    It demonstrates an exact observed predecessor association, not the unobserved software or hardware mechanism.};
+\end{tikzpicture}

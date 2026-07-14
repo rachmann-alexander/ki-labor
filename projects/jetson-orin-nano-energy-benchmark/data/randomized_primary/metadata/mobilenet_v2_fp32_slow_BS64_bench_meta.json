@@ -1,0 +1,26 @@
+{
+  "batch": 64,
+  "cuda_device": "Orin",
+  "device_type": "cuda",
+  "git_commit": null,
+  "git_status": null,
+  "imgsz": 224,
+  "iters": null,
+  "measure_accuracy": true,
+  "metrics": {
+    "duration_s": 1386.9424334429996,
+    "iterations": 782,
+    "latency_avg_ms": 501.30303364066697,
+    "latency_p50_ms": 500.4986280000594,
+    "throughput_img_s": 127.54484739795585,
+    "top1": 0.7214
+  },
+  "model": "mobilenet_v2",
+  "precision": "fp32",
+  "pretrained": true,
+  "seed": 123,
+  "timestamp": "2026-03-16T11:33:06Z",
+  "torch_version": "2.6.0",
+  "torchvision_version": "0.21.0",
+  "warmup": 50
+}

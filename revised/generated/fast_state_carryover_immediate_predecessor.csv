@@ -1,0 +1,5 @@
+immediate_predecessor_state,n_fast_runs,observed_low,observed_high,expected_regime,rule_matches,rule_accuracy_percent
+slow,42,42,0,low,42,100.0
+medium,41,0,41,high,41,100.0
+fast-low,15,15,0,low,15,100.0
+fast-high,28,0,28,high,28,100.0

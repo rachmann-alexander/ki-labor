@@ -1,0 +1,7 @@
+dataset,runs,models,precisions,profiles,batches,seeds,total_images_all_runs,formula_mismatch_runs,runs_with_perf_nan,runs_with_power_nan,runs_with_duplicate_perf_iter,runs_with_duplicate_power_index,runs_with_log_gaps,sum_missing_log_seconds,median_wallspan_meta_duration_ratio,median_timestamp_to_nominal_energy_ratio,median_reported_epi_to_P_over_T_ratio,median_inference_time_fraction_of_meta_duration
+Clone1,126,mobilenet_v2|resnet50,fp16|fp32|fp64,fast|medium|slow,1|4|8|16|32|64|128,42,6300000,0,0,0,0,0,126,10935.0,1.0190663975726824,1.0,1.912266833781407,0.522943122626431
+Clone2,126,mobilenet_v2|resnet50,fp16|fp32|fp64,fast|medium|slow,1|4|8|16|32|64|128,789,6300000,0,0,0,0,0,126,10527.0,1.0178944773407168,1.0,1.912439879116714,0.5228928073695731
+Clone3,126,mobilenet_v2|resnet50,fp16|fp32|fp64,fast|medium|slow,1|4|8|16|32|64|128,456,6300000,0,0,0,0,0,126,9860.0,1.0182955469715622,1.0,1.9232505852597641,0.5199562066446701
+MasterJetson,72,mobilenet_v2|resnet50,fp16|fp32|fp64,fast|medium|slow,1|4|8|16,123,3600000,0,0,0,0,0,72,5689.0,1.0127995931678908,1.0,1.652840310132277,0.6050960664171916
+fixed_2026-03,54,mobilenet_v2|resnet50,fp16|fp32|fp64,fast|medium|slow,32|64|128,123,2700000,0,0,0,0,0,54,4365.0,1.036671424608396,1.0,2.6115144628462925,0.39616606269395416
+random_2026-03,54,mobilenet_v2|resnet50,fp16|fp32|fp64,fast|medium|slow,32|64|128,123,2700000,0,0,0,0,0,54,4688.0,1.0383040530033818,1.0,2.6473094347630166,0.3885416729425983

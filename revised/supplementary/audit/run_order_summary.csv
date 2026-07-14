@@ -1,0 +1,7 @@
+dataset,n,batch_levels,seed_unique,manifest_exact_unshuffled,manifest_exact_python_seed_shuffle,state_running_order_exact_manifest,spearman_actual_vs_fixed_base_order,profile_transitions
+fixed_2026-03,54,32|64|128,123,True,False,True,0.9999999999999999,2
+random_2026-03,54,32|64|128,123,False,True,True,-0.09502572898799314,33
+Clone1,126,1|4|8|16|32|64|128,42,False,True,True,-0.014443194600674917,86
+Clone2,126,1|4|8|16|32|64|128,789,False,True,True,-0.06411098612673417,94
+Clone3,126,1|4|8|16|32|64|128,456,False,True,True,0.07846719160104987,84
+MasterJetson,72,1|4|8|16,123,False,True,True,-0.18901537076339317,57

@@ -1,0 +1,2 @@
+runs,runs_with_gt5xp50,iterations_gt5xp50,fp64_bs128_runs_with_gt5xp50,maximum_observed_batch_latency_s,maximum_throughput_sensitivity_percent
+558,15,28,12,745.585574556957,16.64486466290944
