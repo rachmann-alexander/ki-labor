@@ -1,0 +1,36 @@
+\begin{tikzpicture}[
+  >=Latex,
+  font=\footnotesize,
+  node distance=6mm and 8mm,
+  wfstep/.style={draw, rounded corners=1.5pt, align=center, minimum height=9mm, inner sep=3pt, fill=black!3, text width=31mm},
+  wfphase/.style={draw, rounded corners=1.5pt, align=center, minimum height=9mm, inner sep=3pt, fill=blue!4, text width=31mm},
+  wftimed/.style={draw=fastcolor, very thick, rounded corners=1.5pt, align=center, minimum height=9mm, inner sep=3pt, fill=fastcolor!7, text width=35mm},
+  flow/.style={->, semithick},
+  boundary/.style={draw=mediumcolor, dashed, very thick, rounded corners=3pt, inner sep=4pt},
+]
+  \node[wfstep] (profile) {Reference script:\\set nominal branch};
+  \node[wfstep, right=of profile] (logstart) {Start logger\\requested 1 s; wait 2 s};
+  \node[wfphase, right=of logstart] (setup) {Python, model,\\and loader setup};
+  \node[wfphase, right=of setup] (warmup) {Metadata: warm-up 50\\reference: full batches};
+
+  \node[wfphase, below=12mm of warmup] (validation) {Validation loop\\50,000 images};
+  \node[wfstep, left=of validation] (logstop) {Stop logger and\\move power log};
+  \node[wfstep, left=of logstop] (copy) {Copy remaining\\run artifacts};
+
+  \draw[flow] (profile) -- (logstart);
+  \draw[flow] (logstart) -- (setup);
+  \draw[flow] (setup) -- (warmup);
+  \draw[flow] (warmup) -- (validation);
+  \draw[flow] (validation) -- (logstop);
+  \draw[flow] (logstop) -- (copy);
+
+  \node[wftimed, below=12mm of validation] (forward) {Per batch after transfer:\\forward + CUDA synchronize};
+  \draw[flow, densely dashed] (validation) -- (forward);
+  \node[align=center, text width=42mm, left=12mm of forward] (excluded) {Reference-code boundary:\\loading, transforms, transfer, accuracy, and loop work are outside the forward timer};
+
+  \node[boundary, fit=(logstart)(setup)(warmup)(validation)(logstop),
+        label={[mediumcolor]above:{Logged-window time and integrated \(VDD_{\mathrm{IN}}\) energy}}] {};
+  \node[draw=fastcolor, densely dotted, very thick, rounded corners=2pt,
+        fit=(forward), inner sep=2pt,
+        label={[fastcolor]below:{Forward-only boundary}}] {};
+\end{tikzpicture}

@@ -1,0 +1,19 @@
+dataset,file_type,schema,files
+Clone1,bench_meta.json,batch|cuda_device|device_type|git_commit|git_status|imgsz|iters|measure_accuracy|metrics|model|precision|pretrained|seed|timestamp|torch_version|torchvision_version|warmup :: metrics=duration_s|iterations|latency_avg_ms|latency_p50_ms|throughput_img_s|top1,126
+Clone1,perf.csv,iter|batch|latency_ms|img_per_s|acc_top1,126
+Clone1,tegrastats_power.csv,sample_index|elapsed_s|power_W,126
+Clone2,bench_meta.json,batch|cuda_device|device_type|git_commit|git_status|imgsz|iters|measure_accuracy|metrics|model|precision|pretrained|seed|timestamp|torch_version|torchvision_version|warmup :: metrics=duration_s|iterations|latency_avg_ms|latency_p50_ms|throughput_img_s|top1,126
+Clone2,perf.csv,iter|batch|latency_ms|img_per_s|acc_top1,126
+Clone2,tegrastats_power.csv,sample_index|elapsed_s|power_W,126
+Clone3,bench_meta.json,batch|cuda_device|device_type|git_commit|git_status|imgsz|iters|measure_accuracy|metrics|model|precision|pretrained|seed|timestamp|torch_version|torchvision_version|warmup :: metrics=duration_s|iterations|latency_avg_ms|latency_p50_ms|throughput_img_s|top1,126
+Clone3,perf.csv,iter|batch|latency_ms|img_per_s|acc_top1,126
+Clone3,tegrastats_power.csv,sample_index|elapsed_s|power_W,126
+MasterJetson,bench_meta.json,batch|cuda_device|device_type|git_commit|git_status|imgsz|iters|measure_accuracy|metrics|model|precision|pretrained|seed|timestamp|torch_version|torchvision_version|warmup :: metrics=duration_s|iterations|latency_avg_ms|latency_p50_ms|throughput_img_s|top1,72
+MasterJetson,perf.csv,iter|batch|latency_ms|img_per_s|acc_top1,72
+MasterJetson,tegrastats_power.csv,sample_index|elapsed_s|power_W,72
+fixed_2026-03,bench_meta.json,batch|cuda_device|device_type|git_commit|git_status|imgsz|iters|measure_accuracy|metrics|model|precision|pretrained|seed|timestamp|torch_version|torchvision_version|warmup :: metrics=duration_s|iterations|latency_avg_ms|latency_p50_ms|throughput_img_s|top1,54
+fixed_2026-03,perf.csv,iter|batch|latency_ms|img_per_s|acc_top1,54
+fixed_2026-03,tegrastats_power.csv,sample_index|elapsed_s|power_W,54
+random_2026-03,bench_meta.json,batch|cuda_device|device_type|git_commit|git_status|imgsz|iters|measure_accuracy|metrics|model|precision|pretrained|seed|timestamp|torch_version|torchvision_version|warmup :: metrics=duration_s|iterations|latency_avg_ms|latency_p50_ms|throughput_img_s|top1,54
+random_2026-03,perf.csv,iter|batch|latency_ms|img_per_s|acc_top1,54
+random_2026-03,tegrastats_power.csv,sample_index|elapsed_s|power_W,54

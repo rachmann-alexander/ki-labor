@@ -1,0 +1,8 @@
+scope,n_successor_transitions,median_gap_s,p95_gap_s,maximum_gap_s,interpretation
+Clone1,125,0.0008981227874755859,0.0017267227172851562,0.02377605438232422,gap from archived predecessor done event to successor running event; does not measure unmarked waits inside the successor runner
+Clone2,125,0.0008740425109863281,0.00563812255859375,0.022694110870361328,gap from archived predecessor done event to successor running event; does not measure unmarked waits inside the successor runner
+Clone3,125,0.0009489059448242188,0.007692813873291014,0.09162402153015137,gap from archived predecessor done event to successor running event; does not measure unmarked waits inside the successor runner
+MasterJetson,71,0.0010356903076171875,0.0024826526641845703,0.006177425384521484,gap from archived predecessor done event to successor running event; does not measure unmarked waits inside the successor runner
+fixed_2026-03,53,0.0011248588562011719,0.00789518356323242,0.030655622482299805,gap from archived predecessor done event to successor running event; does not measure unmarked waits inside the successor runner
+random_2026-03,53,0.000957489013671875,0.0021174430847167966,0.020238637924194336,gap from archived predecessor done event to successor running event; does not measure unmarked waits inside the successor runner
+primary_combined,375,0.0009200572967529297,0.005756831169128418,0.09162402153015137,gap from archived predecessor done event to successor running event; does not measure unmarked waits inside the successor runner

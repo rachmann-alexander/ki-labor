@@ -1,0 +1,9 @@
+{
+  "folders": [
+    { "path": "." }
+  ],
+  "settings": {
+    "dev.containers.openInDevContainer": true,
+    "dev.containers.defaultProfile": "devcontainer"
+  }
+}

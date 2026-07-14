@@ -1,0 +1,104 @@
+\begin{tikzpicture}
+\pgfplotsset{
+  profile common/.style={
+    grid=major,
+    major grid style={black!12},
+    tick label style={font=\small},
+    title style={font=\small},
+    label style={font=\small},
+    legend style={font=\small,draw=none},
+  },
+}
+
+\begin{axis}[
+  profile common,
+  name=profilecv,
+  at={(0pt,0pt)},anchor=north west,
+  width=0.438\textwidth,height=0.25\textwidth,
+  title={(a) Median CV across physical boards},
+  ybar,
+  bar width=8pt,
+  symbolic x coords={slow,medium,fast},
+  xtick=data,
+  ylabel={CV (\%)},
+  legend columns=1,
+  legend pos=north west,
+]
+  \addplot+[fill=blue!65,draw=blue!80!black] table[x=profile,y=throughput_cv_percent,col sep=comma] {generated/profile_repeatability.csv};
+  \addlegendentry{Forward throughput}
+  \addplot+[fill=orange!75,draw=orange!80!black] table[x=profile,y=task_energy_cv_percent,col sep=comma] {generated/profile_repeatability.csv};
+  \addlegendentry{Logged-window energy}
+\end{axis}
+
+\begin{axis}[
+  profile common,
+  name=profilepredecessor,
+  at={(0.50\textwidth,0pt)},anchor=north west,
+  width=0.438\textwidth,height=0.25\textwidth,
+  title={(b) Predecessor association for nominal Fast},
+  ybar stacked,
+  bar width=13pt,
+  symbolic x coords={SF,MF,FF},
+  xtick=data,
+  xticklabels={$S\!\rightarrow\!F$,$M\!\rightarrow\!F$,$F\!\rightarrow\!F$},
+  x tick label style={font=\small,align=center},
+  ylabel={Runs},
+  ymin=0,ymax=45,
+  legend columns=2,
+  legend pos=north west,
+]
+  \addplot+[fill=mediumcolor!70,draw=mediumcolor!90!black,nodes near coords,every node near coord/.append style={font=\small}] coordinates {(SF,42) (MF,41) (FF,43)};
+  \addlegendentry{Associated outcome}
+\end{axis}
+
+\begin{axis}[
+  profile common,
+  name=profilegpu,
+  at={(0pt,-0.32\textwidth)},anchor=north west,
+  width=0.938\textwidth,height=0.24\textwidth,
+  title={(c) Illustrative GPU frequency},
+  xlabel={Logged-run progress (\%)},
+  ylabel={GPU frequency (MHz)},
+  xmin=0,xmax=100,
+  ymin=250,ymax=850,
+  ytick={300,400,600,800},
+]
+  \addplot+[slowcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=slow_gpu_MHz,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+  \addplot+[mediumcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=medium_gpu_MHz,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+  \addplot+[fastcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=fast_gpu_MHz,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+\end{axis}
+
+\begin{axis}[
+  profile common,
+  name=profilecpu,
+  at={(0pt,-0.61\textwidth)},anchor=north west,
+  width=0.938\textwidth,height=0.24\textwidth,
+  title={(d) Illustrative maximum CPU-core frequency},
+  xlabel={Logged-run progress (\%)},
+  ylabel={CPU frequency (MHz)},
+  xmin=0,xmax=100,
+  ymin=650,ymax=1250,
+  ytick={700,900,1100,1200},
+]
+  \addplot+[slowcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=slow_cpu_MHz,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+  \addplot+[mediumcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=medium_cpu_MHz,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+  \addplot+[fastcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=fast_cpu_MHz,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+\end{axis}
+
+\begin{axis}[
+  profile common,
+  name=profiletemperature,
+  at={(0pt,-0.90\textwidth)},anchor=north west,
+  width=0.938\textwidth,height=0.24\textwidth,
+  title={(e) Illustrative maximum GPU/junction temperature},
+  xlabel={Logged-run progress (\%)},
+  ylabel={Temperature ($^{\circ}$C)},
+  xmin=0,xmax=100,
+  ymin=35,ymax=46,
+  ytick={36,40,44,46},
+]
+  \addplot+[slowcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=slow_temperature_C,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+  \addplot+[mediumcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=medium_temperature_C,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+  \addplot+[fastcolor,line width=0.9pt,mark=none] table[x=progress_percent,y=fast_temperature_C,col sep=comma] {generated/representative_cpu_gpu_temperature_trace.csv};
+\end{axis}
+\end{tikzpicture}

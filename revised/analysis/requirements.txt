@@ -1,0 +1,5 @@
+# Reproduction runtime used for the revised audit and statistical analyses:
+# Python 3.11.9
+numpy==2.0.2
+pandas==2.2.3
+scipy==1.14.1
